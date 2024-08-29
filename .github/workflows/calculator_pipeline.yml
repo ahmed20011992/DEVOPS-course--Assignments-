@@ -32,12 +32,12 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
 
-          name: Build Docker image
-          run: docker build -t judevops.azurecr.io/ahmed_elhasan1-calculator -f assignment_1_calculator_2024/BE/Dockerfile .
+      - name: Build Docker image
+        run: docker build -t judevops.azurecr.io/ahmed_elhasan1-calculator -f assignment_1_calculator_2024/BE/Dockerfile .
 
       
-          name: Push Docker image
-          run: docker push judevops.azurecr.io/ahmed_elhasan1-calculator:latest
+      - name: Push Docker image
+        run: docker push judevops.azurecr.io/ahmed_elhasan1-calculator:latest
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
