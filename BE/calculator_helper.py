@@ -1,4 +1,4 @@
-import logger
+# import logger
 
 print(" we are in the cal-helper.py file")
 
@@ -25,7 +25,7 @@ class CalculatorHelper():
             admin = self.User('admin', 'test1234')
             self._user_list.append(admin)
             self._is_initialized = True
-            self.logger = logger.get_logger(__name__)
+        #    self.logger = logger.get_logger(__name__)
 
     class User():
         def __init__(self, username, password):
@@ -41,28 +41,31 @@ class CalculatorHelper():
         # self.logger.debug("test")
         # self.logger.debug("some message", extra=self.log_properties)
         print("here we are inside adding function")
-        self.logger.debug(
-            f"adding {b} with {a} results in {a + b}", extra=self.log_properties)
-        return a + b
+        # self.logger.debug(
+        # f"adding {b} with {a} results in {a + b}", extra=self.log_properties)
+        result = a+b
+        return result
     print("here we are after the adding function")
 
     def subtract(self, a, b):
-        self.logger.debug(
-            f"Subtracting {b} from {a} results in {a - b}", extra=self.log_properties)
+        # self.logger.debug(
+        # f"Subtracting {b} from {a} results in {a - b}", extra=self.log_properties)
+        result = a - b
 
-        return a - b
+        return result
 
     def multiply(self, a, b):
-        self.logger.debug(
-            f"multiply {b} with {a} results in {a * b}", extra=self.log_properties)
+        res = a*b
+        # self.logger.debug(
+        # f"multiply {b} with {a} results in {res}", extra=self.log_properties)
 
-        return a * b
+        return res
 
     def divide(self, a, b):
-        self.logger.debug(
-            f"dividing {b} from {a} results in { a / b}", extra=self.log_properties)
-
-        return a / b
+        # self.logger.debug(
+        # f"dividing {b} from {a} results in { a / b}", extra=self.log_properties)
+        res = a/b
+        return res
 
     def register_user(self, username, password):
         for user in self._user_list:
