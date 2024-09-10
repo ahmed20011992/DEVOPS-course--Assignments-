@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
 
       - name: Build Docker image  ## jag behöver inte skappan en image varje gång
-        run: docker build -t judevops.azurecr.io/ahmed_elhasan1-calculator ./assignment_1_calculator_2024/BE
+        run: docker build -t judevops.azurecr.io/ahmed_elhasan1-calculator ./BE
 
       
       - name: Push Docker image
