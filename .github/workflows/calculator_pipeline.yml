@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,7 +24,21 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-        
+
+      - name: Install dependencies
+        run: |
+
+          pip install -r requirements.txt
+
+      - name: Start REST API
+        run: |
+          python BE/calculator.py --rest &
+        shell: bash
+
+      - name: Run tests
+        run: |
+          pytest --junit-xml=report.xml
+
       - name: Login to ACR 7
         uses: docker/login-action@v3
         with:
@@ -32,10 +46,9 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
 
-      - name: Build Docker image  ## jag behöver inte skappan en image varje gång
+      - name: Build Docker image ## jag behöver inte skappan en image varje gång
         run: docker build -t judevops.azurecr.io/ahmed_elhasan1-calculator ./BE
 
-      
       - name: Push Docker image
         run: docker push judevops.azurecr.io/ahmed_elhasan1-calculator:latest
 
@@ -48,5 +61,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-# udwhdiud
-
