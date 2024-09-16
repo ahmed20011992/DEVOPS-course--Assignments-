@@ -27,6 +27,9 @@ jobs:
 
       - name: Install dependencies
         run: |
+
+          pip install attrs
+
           python -m pip install --upgrade pip
 
           pip install -r BE/requirements.txt
