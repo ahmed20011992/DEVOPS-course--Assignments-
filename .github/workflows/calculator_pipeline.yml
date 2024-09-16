@@ -33,11 +33,9 @@ jobs:
       - name: Start REST API
         run: |
           python BE/calculator.py --rest &
-        shell: bash
 
-      - name: Run tests
-        run: |
-          pytest --junit-xml=report.xml
+          sleep 5
+          python -m pytest --junit-xml=report.xml
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
