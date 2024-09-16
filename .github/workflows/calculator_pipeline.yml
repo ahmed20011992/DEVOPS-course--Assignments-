@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
 
-          pip install -r /BE/requirements.txt
+          pip install -r BE/requirements.txt
 
       - name: Start REST API
         run: |
