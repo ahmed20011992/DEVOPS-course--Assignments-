@@ -9,7 +9,7 @@ class Base:
 
     def teardown_method(self):
         print("\nTeardown method")
-        del self.calculator
+     #   del self.calculator
 
 
 class TestCalculator(Base):
