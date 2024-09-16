@@ -6,3 +6,4 @@ argparse
 opencensus-ext-azure
 pytest
 attrs
+httpx
