@@ -21,7 +21,8 @@ class TestCalcApi ():
         assert response.status_code == 200
 
         data = response.json()
-
+        assert isinstance(response.json(), dict)
+        assert 'result' in data
         assert data['result'] == 3
 
     def test_auto_code(self):

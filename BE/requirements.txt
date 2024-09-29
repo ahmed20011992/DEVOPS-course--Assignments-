@@ -7,3 +7,7 @@ opencensus-ext-azure
 pytest
 attrs
 httpx
+munch
+selenium
+webdriver-manager
+assertpy
